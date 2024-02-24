@@ -14,6 +14,6 @@
 // limitations under the License.                                           //
 //==========================================================================//
 
-#define LED_Pin_1 4
-#define LED_Pin_2 2
-#define LED_Pin_3 15
+#define LED_Pin_1_D 4
+#define LED_Pin_2_D 2
+#define LED_Pin_3_D 15

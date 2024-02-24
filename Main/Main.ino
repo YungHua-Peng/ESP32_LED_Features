@@ -19,13 +19,13 @@
 void LED_Blinker (int LED_Pin_Num);
 
 void setup() {
-  pinMode(LED_Pin_1, OUTPUT);
-  pinMode(LED_Pin_2, OUTPUT);
-  pinMode(LED_Pin_3, OUTPUT);
+  pinMode(LED_Pin_1_D, OUTPUT);
+  pinMode(LED_Pin_2_D, OUTPUT);
+  pinMode(LED_Pin_3_D, OUTPUT);
 
-  digitalWrite(LED_Pin_1, LOW);
-  digitalWrite(LED_Pin_2, LOW);
-  digitalWrite(LED_Pin_3, LOW);
+  digitalWrite(LED_Pin_1_D, LOW);
+  digitalWrite(LED_Pin_2_D, LOW);
+  digitalWrite(LED_Pin_3_D, LOW);
 }
 
 void loop() {
@@ -35,15 +35,15 @@ void loop() {
   while (true) {
     switch (LED_Index) {
       case 1: 
-        LED_Chosen = LED_Pin_1;
+        LED_Chosen = LED_Pin_1_D;
         LED_Index = 2;
         break;
       case 2:
-        LED_Chosen = LED_Pin_2;
+        LED_Chosen = LED_Pin_2_D;
         LED_Index = 3;
         break;
       case 3:
-        LED_Chosen = LED_Pin_3;
+        LED_Chosen = LED_Pin_3_D;
         LED_Index = 1;
         break;
     }

@@ -16,43 +16,37 @@
 
 #include "ConstantDefinition.h"
 
-void LED_Blinker (int LED_Pin_Num);
-
 void setup() {
-  pinMode(LED_Pin_1_D, OUTPUT);
-  pinMode(LED_Pin_2_D, OUTPUT);
-  pinMode(LED_Pin_3_D, OUTPUT);
+  pinMode(LED_Pin_1_A, OUTPUT);
+  pinMode(LED_Pin_2_A, OUTPUT);
+  pinMode(LED_Pin_3_A, OUTPUT);
 
-  digitalWrite(LED_Pin_1_D, LOW);
-  digitalWrite(LED_Pin_2_D, LOW);
-  digitalWrite(LED_Pin_3_D, LOW);
+  analogWrite(LED_Pin_1_A, 0);
+  analogWrite(LED_Pin_2_A, 0);
+  analogWrite(LED_Pin_3_A, 0);
 }
 
 void loop() {
-  int LED_Chosen;
-  int LED_Index = 1;
+  int Lighten_LED_1 = 0;
+  int Lighten_LED_2 = 60;
+  int Lighten_LED_3 = 90;
 
   while (true) {
-    switch (LED_Index) {
-      case 1: 
-        LED_Chosen = LED_Pin_1_D;
-        LED_Index = 2;
-        break;
-      case 2:
-        LED_Chosen = LED_Pin_2_D;
-        LED_Index = 3;
-        break;
-      case 3:
-        LED_Chosen = LED_Pin_3_D;
-        LED_Index = 1;
-        break;
-    }
-    LED_Blinker (LED_Chosen);
-  }
-}
+    analogWrite(LED_Pin_1_A, Lighten_LED_1);
+    analogWrite(LED_Pin_2_A, Lighten_LED_2);
+    analogWrite(LED_Pin_3_A, Lighten_LED_3);
+    
+    Lighten_LED_1 += 15;
+    Lighten_LED_2 += 15;
+    Lighten_LED_3 += 15;
 
-void LED_Blinker (int LED_Pin_Num) {
-  digitalWrite(LED_Pin_Num, HIGH);
-  delay(500);
-  digitalWrite(LED_Pin_Num, LOW);
+    if (Lighten_LED_1 > 255)
+      Lighten_LED_1 = 0;
+    if (Lighten_LED_2 > 255)
+      Lighten_LED_2 = 0;
+    if (Lighten_LED_3 > 255)
+      Lighten_LED_3 = 0;
+    
+    delay(200);
+  }
 }

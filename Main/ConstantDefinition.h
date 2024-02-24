@@ -13,3 +13,7 @@
 // See the License for the specific language governing permissions and      //
 // limitations under the License.                                           //
 //==========================================================================//
+
+#define LED_Pin_1 4
+#define LED_Pin_2 2
+#define LED_Pin_3 15
